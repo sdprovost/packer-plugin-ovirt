@@ -10,6 +10,7 @@ import (
 	"github.com/hashicorp/packer/helper/communicator"
 	"github.com/hashicorp/packer/helper/multistep"
 	"github.com/hashicorp/packer/packer"
+	"github.com/hashicorp/hcl/v2/hcldec"
 	ovirtsdk4 "github.com/ovirt/go-ovirt"
 )
 
@@ -25,14 +26,14 @@ type Builder struct {
 var pluginVersion = "0.0.1"
 
 // Prepare processes the build configuration parameters.
-func (b *Builder) Prepare(raws ...interface{}) ([]string, error) {
+func (b *Builder) Prepare(raws ...interface{}) ([]string, []string, error) {
 	c, warnings, errs := NewConfig(raws...)
 	if errs != nil {
-		return warnings, errs
+		return nil, warnings, errs
 	}
 	b.config = *c
 
-	return nil, nil
+	return nil, nil, nil
 }
 
 // Run is the main function executing the image build.
