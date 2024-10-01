@@ -3,7 +3,7 @@ module github.com/sdprovost/packer-plugin-ovirt
 go 1.15
 
 require (
-	github.com/sdprovost/packer-builder-ovirt v1.0
+	github.com/sdprovost/packer-plugin-ovirt v1.1
 	github.com/google/uuid v1.1.2
 	github.com/hashicorp/hcl/v2 v2.6.0
 	github.com/hashicorp/packer v1.6.4
